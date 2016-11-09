@@ -8,7 +8,20 @@ class User {
 	}
 
 	function login(){
-		$client_id = json_decode(file_get_contents('../client_id.json'), true);
+
+		$client = new Google_Client();
+		$client->setAuthConfig('../client_id.json');
+		$client->addScope(Google_Service_Calendar::CALENDAR_READONLY);
+		$client->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/callback.php');
+		$client->setAccessType('offline');
+
+		$auth_url = $client->createAuthUrl();
+		header('Location: ' . filter_var($auth_url, FILTER_SANITIZE_URL));
+
+
+		//var_dump(Google_Service_Calendar::CALENDAR_READONLY);
+
+		/*$client_id = json_decode(file_get_contents('../client_id.json'), true);
 		$client_id = $client_id['web'];
 		$provider = new League\OAuth2\Client\Provider\Google([
 			'clientId'     => $client_id['client_id'],
@@ -67,7 +80,7 @@ class User {
 
 			// Number of seconds until the access token will expire, and need refreshing
 			echo $token->getExpires();
-		}
+		}*/
 
 	}
 
