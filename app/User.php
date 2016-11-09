@@ -12,7 +12,7 @@ class User {
 		$client = new Google_Client();
 		$client->setAuthConfig('../client_id.json');
 		$client->addScope(Google_Service_Calendar::CALENDAR_READONLY);
-		$client->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/callback.php');
+		$client->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/oauth2callback.php');
 		$client->setAccessType('offline');
 
 		$auth_url = $client->createAuthUrl();
