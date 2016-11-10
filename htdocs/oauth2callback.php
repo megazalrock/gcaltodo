@@ -1,5 +1,8 @@
 <?php
 
-require_once __DIR__ . "/../vendor/autoload.php";
+require_once __DIR__ . '/../app/Class/GoogleApi.php';
+require_once __DIR__ . '/../app/Class/Users.php';
 
-var_dump(get_defined_vars());
+$api = new GoogleAPI();
+$api->authenticate_by_code()
+	->get_user_id();
