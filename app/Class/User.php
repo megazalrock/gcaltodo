@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . "/../../vendor/autoload.php";
-require_once __DIR__ . "./DataBase.php";
+require_once __DIR__ . "/DataBase.php";
 
 
 class User extends DataBase{
