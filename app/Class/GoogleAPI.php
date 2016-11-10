@@ -18,7 +18,7 @@ class GoogleAPI {
 		$this->client->addScope(Google_Service_Calendar::CALENDAR_READONLY);
 		$this->client->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/oauth2callback.php');
 		$this->client->setAccessType('offline');
-		$auth_url = $client->createAuthUrl();
+		$auth_url = $this->client->createAuthUrl();
 		header('Location: ' . filter_var($auth_url, FILTER_SANITIZE_URL));
 	}
 
