@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../app/Class/GoogleApi.php';
+require_once __DIR__ . '/../app/Class/GoogleAPI.php';
 require_once __DIR__ . '/../app/Class/Users.php';
 
 $api = new GoogleAPI();
