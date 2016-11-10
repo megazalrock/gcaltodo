@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "js-md5": "^0.4.1",
     "lodash": "^4.13.1"
   },
   "devDependencies": {

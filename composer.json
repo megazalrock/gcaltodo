@@ -1,6 +1,7 @@
 {
     "require": {
         "google/apiclient": "^2.1",
-        "lusitanian/oauth": "^0.8.9"
+        "lusitanian/oauth": "^0.8.9",
+        "vlucas/bulletphp": "^1.4"
     }
 }
