@@ -15,9 +15,9 @@ class GoogleAPI {
 
 	function get_code(){
 		$this->client->setAuthConfig('../client_id.json');
-		$this->client->addScope(Google_Service_Calendar::CALENDAR_READONLY);
+		//$this->client->addScope(Google_Service_Calendar::CALENDAR_READONLY);
+		$this->client->addScope('openid');
 		$this->client->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/oauth2callback.php');
-		$this->client->setAccessType('offline');
 		$auth_url = $this->client->createAuthUrl();
 		header('Location: ' . filter_var($auth_url, FILTER_SANITIZE_URL));
 	}
@@ -40,6 +40,7 @@ class GoogleAPI {
 	}
 
 	function get_user_id(){
+		$this->client->setAccessToken($this->access_token);
 		$ticket = $this->client->verifyIdToken($this->access_token);
 		if($ticket){
 			$data = $ticket->getAttribute();
